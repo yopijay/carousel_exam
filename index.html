@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carousel</title>
+        <style>
+            body {
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+            }
+
+            .carousel img {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My Carousel</h1>
+        <div class="carousel">
+            <img alt="First" src="https://placehold.co/350x200?text=1" />
+            <img alt="Second" src="https://placehold.co/350x200?text=2" />
+            <img alt="Third" src="https://placehold.co/350x200?text=3" />
+            <img alt="Fourth" src="https://placehold.co/350x200?text=4" />
+            <img alt="Fifth" src="https://placehold.co/350x200?text=5" />
+        </div>
+        <script>
+            const slides = document.querySelectorAll('.carousel img');
+            let current = 0;
+
+            function showslide(index) {
+                slides.forEach(slide => slide.style.display = 'none');
+                slides[index].style.display = 'block';
+            }
+
+            function startcarousel() {
+                intervalId = setInterval(() => {
+                    current = (current + 1) % slides.length;
+                    showslide(current);
+                }, 1000); // This will change the slides every 1 seconds
+            }
+
+            startcarousel(); // This will trigger the carousel automatically
+        </script>
+    </body>
+</html>
