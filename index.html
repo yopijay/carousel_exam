@@ -28,12 +28,12 @@
             const slides = document.querySelectorAll('.carousel img');
             let current = 0;
 
-            function showslide(index) {
+            const showslide = index => {
                 slides.forEach(slide => slide.style.display = 'none');
                 slides[index].style.display = 'block';
             }
 
-            function startcarousel() {
+            const startcarousel = () => {
                 intervalId = setInterval(() => {
                     current = (current + 1) % slides.length;
                     showslide(current);
